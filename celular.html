@@ -976,14 +976,17 @@ var VOZ_KEY = "nova_voz";
 function vozPuntaje(v){
   var l = v.lang.replace("_","-"), n = v.name, p = 0;
   if(!/^es/i.test(l)) return -999;
-  if(/^es-CO/i.test(l)) p += 100;
-  else if(/^es-419/i.test(l)) p += 70;
-  else if(/^es-(US|MX)/i.test(l)) p += 55;
+  if(/^es-US/i.test(l)) p += 160;
+  else if(/^es-MX/i.test(l)) p += 120;
+  else if(/^es-419/i.test(l)) p += 110;
+  else if(/^es-CO/i.test(l)) p += 60;
   else if(/^es-(AR|PE|CL|VE|EC|UY|BO|PY|CR|PA|GT|HN|NI|SV|DO|CU|PR)/i.test(l)) p += 40;
   else if(/^es-ES/i.test(l)) p += 10;
   else p += 5;
   if(/natural|neural|online|premium|enhanced|mejorad|siri|salome|gonzalo|soledad|carlos|google/i.test(n)) p += 45;
   if(/compact|espeak|eloquence|novelty|zarvox|trinoids|whisper|bells|organ|cellos|boing|bubbles|jester|bad news|good news|albert|fred|junior|kathy|ralph|superstar/i.test(n)) p -= 120;
+  if(/estados unidos|united states|paulina|angelica|ang[eé]lica|m[oó]nica|sandy|shelley|flo\b|soledad|francisca|marisol|female|mujer/i.test(n)) p += 40;
+  if(/juan|jorge|diego|carlos|eddy|reed|rocko|grandpa|male\b/i.test(n)) p -= 60;
   if(v.localService === false) p += 8;
   return p;
 }
