@@ -645,7 +645,7 @@ var MOD = [
    nova2:"Pasantía: practicas tu profesión en una organización, nacional o internacional. Pide 90% de avance, promedio de 4.0 y no tener vínculo laboral con la entidad."},
   {id:"diplomado", nombre:"Diplomado de profundización", min:90, prom:"No se exige", nota:"3.5", entrega:"Proyecto y sustentación", acompT:"Docentes de los cursos", perfiles:["estudiar"],
    def:"Opción de grado que le permite al estudiante actualizar, complementar y apropiar nuevos aprendizajes.",
-   varT:"Diplomado disponible", vars:["Logistics and Big Data · código 101278850 · en inglés"],
+   varT:"Diplomado disponible", vars:["Logística y Big Data · código 101278850 · en inglés"],
    reqs:[{t:"Tener aprobado el 90% de los créditos del programa",k:"cred",h:"Matricula y aprueba en los próximos períodos los créditos que te faltan hasta llegar al 90%."},
            {t:"Nota mínima de 3.5",h:"Cursa y aprueba los cursos del diplomado con esa nota como mínimo."},
            {t:"Cursarlo en períodos de 16 semanas, que es cuando se ofertan",h:"Revisa la oferta del período y matricúlate cuando se abra el diplomado."},
@@ -669,7 +669,7 @@ var MOD = [
      "Cursa y aprueba los cursos con los docentes asignados.",
      "Desarrolla el proyecto y presenta la sustentación final."
    ],
-   nova2:"Diplomado de profundización: actualizas y complementas aprendizajes, y cierras con proyecto y sustentación. Hay uno en inglés, Logistics and Big Data."},
+   nova2:"Diplomado de profundización: actualizas y complementas aprendizajes, y cierras con proyecto y sustentación. Hay uno en inglés, Logística y Big Data."},
   {id:"posgrado", nombre:"Créditos de posgrado", min:90, prom:"No se exige", nota:"3.5", entrega:"10 créditos cursados", acompT:"Docentes del posgrado", perfiles:["estudiar"],
    def:"Opción de grado que le permite al estudiante de un programa de formación de grado cursar y aprobar, como mínimo, diez (10) créditos académicos de un programa de posgrado de la UNAD, sin que esto le dé la calidad de estudiante de posgrado.",
    varT:"Nivel", vars:["Especialización","Maestría"], posTabs:true,
@@ -1009,6 +1009,7 @@ function vozTexto(t){
     .replace(/\bARL\b/g, "A R L")
     .replace(/\bP-(\d+)-(\d+)\b/g, "P $1 $2")
     .replace(/\bNOVA\b/g, "Nova")
+    .replace(/\bECACEN\b/g, "Ecacén")
     .replace(/[·→]/g, ", ")
     .replace(/\s+/g, " ").trim();
 }
