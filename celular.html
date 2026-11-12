@@ -957,7 +957,7 @@ function speak(t){
     partes.forEach(function(p){
       var u = new SpeechSynthesisUtterance(p);
       if(v){ u.voice = v; u.lang = v.lang; } else u.lang = "es-CO";
-      u.rate = 1.29; u.pitch = 1; u.volume = 1;
+      u.rate = 1.10; u.pitch = 1; u.volume = 1;
       u.onstart = function(){ if(gen === speechGen) novaEv({type:"chunk", text:p}); };
       u.onboundary = function(e){
         if(gen !== speechGen) return;
@@ -1872,7 +1872,7 @@ var voiceBtn=document.getElementById("voz"), sayEl=document.getElementById("sayF
 function voiceOn(){ return !!voiceBtn&&voiceBtn.getAttribute("aria-pressed")==="true"; }
 function speakingNow(){ try{ var ss=window.speechSynthesis; return !!ss&&(ss.speaking||ss.pending); }catch(e){ return false; } }
 function nowS(){ return performance.now()/1000; }
-var Q=[], spActive=false, lastWordT=0, lastW=1, rateEst=0.11;
+var Q=[], spActive=false, lastWordT=0, lastW=1, rateEst=0.13;
 var VZ={a:[0.23,0.5],e:[0.13,0.62],i:[0.085,0.64],o:[0.18,0.3],u:[0.12,0.25],c:[0,0.5],f:[0.035,0.54]};
 function norm(w){ return w.toLowerCase().replace(/[áàä]/g,"a").replace(/[éèë]/g,"e").replace(/[íìï]/g,"i").replace(/[óòö]/g,"o").replace(/[úùü]/g,"u").replace(/ñ/g,"n").replace(/[^a-z]/g,""); }
 function visOf(w){
@@ -1921,7 +1921,7 @@ window.addEventListener("nova:speech",function(e){
 if(sayEl) new MutationObserver(function(){
   var t=(sayEl.textContent||"").trim(); if(!t) return;
   if(!voiceOn()){ Q.length=0; enqueueText(t,nowS(),0.14); }
-  else setTimeout(function(){ if(voiceOn()&&!spActive&&!Q.length&&speakingNow()) enqueueText(t,nowS(),0.115); },1300);
+  else setTimeout(function(){ if(voiceOn()&&!spActive&&!Q.length&&speakingNow()) enqueueText(t,nowS(),0.135); },1300);
 }).observe(sayEl,{childList:true,characterData:true,subtree:true});
 var mood="neutral";
 function readMood(){ mood=host.classList.contains("is-ok")?"ok":host.classList.contains("is-bad")?"bad":"neutral"; }
